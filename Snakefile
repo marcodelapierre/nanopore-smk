@@ -97,7 +97,7 @@ rule diamond:
   "&& sort -n -r -k 6 {params.prefix}_unsort.tsv >{output} "
 
 
-rule seqfile
+rule seqfile:
  output: "refseq_{seqid}.fasta"
  params: seqid="{seqid}", blast_db=config['params']['blast_db']
  shadow:  "minimal"
