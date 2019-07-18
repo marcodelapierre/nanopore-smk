@@ -14,8 +14,8 @@ The pipeline is still in **beta test**.
 
 Basecalling\* -> Chopping -> De-novo assembling -> Blasting\+ -> Aligning\#
 
-\* Optional
-\+ Either with Blast or Diamond
+\* Optional  
+\+ Either with Blast or Diamond  
 \# Requires additional input in a subsequent run
 
 
@@ -40,14 +40,14 @@ snakemake -j 1 --use-singularity run_align
 
 The expected default input is one or multiple directory/ies containing raw read files from experiment(s). By default, Blast is used for blasting.
 
-1. To feed instead a single (or multiple) already basecalled FASTQ file(s) as input, provide a list of sample prefixes in `config.yaml`, under `inputs: read_dirs:`, and then ensure in your running directory you have the input files named as `$prefix_basecalled.fastq`.
+1. To feed instead a single (or multiple) already basecalled FASTQ file(s) as input, provide a list of experiment prefixes in `config.yaml`, under `inputs: read_dirs:`, and then ensure in your running directory you have the input files named as `$prefix_basecalled.fastq`.
 2. To use Diamond for blasting, use the command line target `run_upstream_diamond`.
 
 
 ### Optional parameters
 
 * Change *evalue* for blasting: in `config.yaml`, edit `params: evalue: '0.1'`.
-* Change minimum length threshold for assembled contigs to be considered for blasting: edit `params: min_len_contig: '1000'`.
+* Change minimum length threshold for assembled contigs to be considered for blasting: in `config.yaml`, edit `params: min_len_contig: '1000'`.
 
 
 ### Requirements
