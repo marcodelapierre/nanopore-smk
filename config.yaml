@@ -1,0 +1,21 @@
+inputs:
+ read_dirs:
+  - 'sample6'
+ seqids:
+  - 'D10930.1'
+  - 'MK116873.1'
+
+params:
+ min_len_contig: '1000'
+ evalue: '0.1'
+ blast_db: '/group/data/blast/nt'
+ diamond_db: ''
+
+threads:
+ default: 28
+
+containers:
+ guppy: 'docker://genomicpariscentre/guppy:3.1.5'
+ pomoxis: 'docker://quay.io/biocontainers/pomoxis:0.2.2--py_0'
+ blast: 'docker://quay.io/biocontainers/blast:2.7.1--h4422958_6'
+ diamond: 'docker://quay.io/biocontainers/diamond:0.9.24--ha888412_1'

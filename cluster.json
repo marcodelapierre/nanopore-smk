@@ -1,0 +1,11 @@
+{
+    "__default__" :
+    {
+        "account" : "pawsey0001",
+        "n" : 28,
+        "mem" : "120G",
+        "time" : "24:00:00",
+        "partition" : "workq"
+    },
+}
+
