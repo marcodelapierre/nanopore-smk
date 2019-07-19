@@ -13,5 +13,5 @@ snakemake \
   --shadow-prefix $MYSCRATCH/smk_work \
   -j 96 --cluster-config cluster.json \
   --cluster "sbatch -A {cluster.account} -p {cluster.partition} -n {cluster.n} --mem={cluster.mem} -t {cluster.time}" \
-  --use-singularity --singularity-prefix $MYGROUP/.smk_singularity \
+  --use-singularity --singularity-prefix $MYGROUP/.smk_singularity --singularity-args "\-B /group \-B /scratch" \
   run_align
