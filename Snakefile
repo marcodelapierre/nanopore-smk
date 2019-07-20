@@ -28,7 +28,7 @@ rule basecall:
   "   -c dna_r9.4.1_450bps_hac.cfg "
   "   --qscore_filtering --min_score 7 "
   "   --num_callers 1 --cpu_threads_per_caller {threads} "
-  "&& ln -s {params.outdir}/pass/fastq_runid_*.fastq {output} "
+  "&& mv {params.outdir}/pass/fastq_runid_*.fastq {output} "
 
 
 rule chop:
