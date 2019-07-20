@@ -65,5 +65,3 @@ Reference data:
 
 The `extra` directory contains example Slurm scripts, `job1.sh`, `job2.sh` and `job1_diamond.sh` to run on Zeus.
 
-
-**Note**: Slurm parameters in the file `cluster.json` (cores, memory, walltime) are general values, that require tuning for production runs.

@@ -2,10 +2,36 @@
     "__default__" :
     {
         "account" : "pawsey0001",
-        "n" : 28,
-        "mem" : "120G",
-        "time" : "24:00:00",
-        "partition" : "workq"
+        "partition" : "workq",
+        "n" : 1,
+        "time" : "01:00:00",
+        "mem" : "10G"
     },
+    "basecall" :
+    {
+        "n" : 28,
+        "time" : "24:00:00",
+        "mem" : "120G"
+    },
+    "chop" :
+    {
+        "n" : 4,
+        "time" : "12:00:00"
+    },
+    "assemble" :
+    {
+        "time" : "12:00:00",
+        "mem" : "60G"
+    },
+    "blast" :
+    {
+        "time" : "03:00:00",
+        "mem" : "60G"
+    },
+    "diamond" :
+    {
+        "time" : "03:00:00",
+        "mem" : "60G"
+    }
 }
 
