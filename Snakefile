@@ -122,5 +122,5 @@ rule align:
   "mini_align "
   "   -i {input.chop} -r {input.seq} "
   "   -p {params.prefix} "
-  "   -t ${threads} "
+  "   -t {threads} "
 
