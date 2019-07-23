@@ -61,7 +61,7 @@ rule assemble:
 
 rule blast:
  input: "{sample}_denovo_subset.fa"
- output: "{sample}_blast.tsv"
+ output: tsv="{sample}_blast.tsv", xml="{sample}_blast.xml"
  params: prefix="{sample}_blast", blast_db=config['params']['blast_db'], evalue=config['params']['evalue']
  shadow:  "minimal"
  threads: config['threads']['default']
@@ -74,16 +74,16 @@ rule blast:
   "   -num_threads {threads} "
   "&& blast_formatter "
   "   -archive {params.prefix}.asn "
-  "   -outfmt 5 -out {params.prefix}.xml "
+  "   -outfmt 5 -out {output.xml} "
   "&& blast_formatter "
   "   -archive {params.prefix}.asn "
   "   -outfmt \"6 qaccver saccver pident length evalue bitscore stitle\" -out {params.prefix}_unsort.tsv "
-  "&& sort -n -r -k 6 {params.prefix}_unsort.tsv >{output} "
+  "&& sort -n -r -k 6 {params.prefix}_unsort.tsv >{output.tsv} "
 
 
 rule diamond:
  input: "{sample}_denovo_subset.fa"
- output: "{sample}_diamond.tsv"
+ output: tsv="{sample}_diamond.tsv", xml="{sample}_diamond.xml"
  params: prefix="{sample}_diamond", diamond_db=config['params']['diamond_db'], evalue=config['params']['evalue']
  shadow:  "minimal"
  threads: config['threads']['diamond']
@@ -91,10 +91,15 @@ rule diamond:
  shell:
   "diamond blastx "
   "   -q {input} -d {params.diamond_db} "
+  "   -f 5 -o {output.xml} "
+  "   --evalue {params.evalue} "
+  "   -p {threads} "
+  "&& diamond blastx "
+  "   -q {input} -d {params.diamond_db} "
   "   -f 6 qseqid  sseqid  pident length evalue bitscore stitle -o {params.prefix}_unsort.tsv "
   "   --evalue {params.evalue} "
   "   -p {threads} "
-  "&& sort -n -r -k 6 {params.prefix}_unsort.tsv >{output} "
+  "&& sort -n -r -k 6 {params.prefix}_unsort.tsv >{output.tsv} "
 
 
 rule seqfile:
