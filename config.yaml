@@ -12,7 +12,10 @@ params:
  diamond_db: ''
 
 threads:
- default: 28
+ default: 1
+ basecall: 28
+ chop: 4
+
 
 containers:
  guppy: 'docker://genomicpariscentre/guppy:3.1.5'

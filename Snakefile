@@ -18,7 +18,7 @@ rule basecall:
  output: "{sample}_basecalled.fastq"
  params: outdir="{sample}_basecalled"
  shadow:  "minimal"
- threads: config['threads']['default']
+ threads: config['threads']['basecall']
  singularity: config['containers']['guppy']
  shell:
   "guppy_basecaller "
@@ -35,7 +35,7 @@ rule chop:
  input: "{sample}_basecalled.fastq"
  output: "{sample}_chopped.fastq"
  shadow:  "minimal"
- threads: config['threads']['default']
+ threads: config['threads']['chop']
  singularity: config['containers']['pomoxis']
  shell:
   "porechop "
