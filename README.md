@@ -1,13 +1,8 @@
-## Nanopore pipeline for DPIRD - Snakemake edition - beta
+## Nanopore pipeline for DPIRD - Snakemake edition
 
 The pipeline requires [Snakemake](https://bitbucket.org/snakemake/snakemake/) to run.
 Tests have been done with Snakemake version `5.5.2`.
 The setup assumes running on Zeus at Pawsey Supercomputing Centre and uses containerised software.
-
-
-### IMPORTANT NOTE
-
-The pipeline is still in **beta test**.
 
 
 ### Pipeline
