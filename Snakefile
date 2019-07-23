@@ -86,12 +86,12 @@ rule diamond:
  output: "{sample}_diamond.tsv"
  params: prefix="{sample}_diamond", diamond_db=config['params']['diamond_db'], evalue=config['params']['evalue']
  shadow:  "minimal"
- threads: config['threads']['default']
+ threads: config['threads']['diamond']
  singularity: config['containers']['diamond']
  shell:
   "diamond blastx "
   "   -q {input} -d {params.diamond_db} "
-  "   -f \"6 qseqid  sseqid  pident length evalue bitscore stitle\" -o {params.prefix}_unsort.tsv "
+  "   -f 6 qseqid  sseqid  pident length evalue bitscore stitle -o {params.prefix}_unsort.tsv "
   "   --evalue {params.evalue} "
   "   -p {threads} "
   "&& sort -n -r -k 6 {params.prefix}_unsort.tsv >{output} "

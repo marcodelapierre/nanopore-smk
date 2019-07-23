@@ -15,6 +15,7 @@ threads:
  default: 1
  basecall: 28
  chop: 4
+ diamond: 2
 
 
 containers:
