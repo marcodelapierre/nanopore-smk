@@ -11,4 +11,5 @@ module load singularity/3.3.0
 module load snakemake
 
 snakemake \
-  --profile profiles/zeus
+  --profile profiles/zeus \
+  run_align
