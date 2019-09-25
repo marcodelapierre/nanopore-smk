@@ -5,7 +5,7 @@ jobscript: "executors/slurm/jobscript"
 cluster-config: "profiles/zeus/cluster.json"
 
 shadow-prefix: "$MYSCRATCH/smk_work"
-jobs: 511
+jobs: 512
 
 use-singularity: true
 singularity-prefix: "$MYGROUP/.smk_singularity"
