@@ -16,7 +16,7 @@ Basecalling\* -> Chopping -> De-novo assembling -> Blasting\+ -> Aligning\#
 
 ### Basic usage
 
-Local copies of `Snakefile`, `config.yaml` and `cluster.json` are required. The following examples are for non-cluster runs; find cluster scripts for Zeus under the directory `extra/`.
+Local copies of `Snakefile` and `config.yaml` are required. The following examples are for non-cluster runs; cluster runs will need also local copies of the directories `profiles/` and `executors/`; find cluster scripts for Zeus under the directory `extra/`.
 
 ```
 snakemake -j 1 --use-singularity
