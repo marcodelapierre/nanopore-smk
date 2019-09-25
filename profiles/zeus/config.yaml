@@ -9,4 +9,4 @@ jobs: 512
 
 use-singularity: true
 singularity-prefix: "$MYGROUP/.smk_singularity"
-singularity-args: "\-B /group \-B /scratch"
+singularity-args: "-B /group -B /scratch"
