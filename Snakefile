@@ -1,5 +1,7 @@
 configfile: "config.yaml"
 
+localrules: run_upstream, run_upstream_diamond, run_align
+
 
 rule run_upstream:
  input: expand("{sample}_blast.tsv", sample=config['inputs']['read_dirs'])
@@ -104,13 +106,13 @@ rule diamond:
 
 rule seqfile:
  output: "refseq_{seqid}.fasta"
- params: seqid="{seqid}", blast_db=config['params']['blast_db']
+ params: blast_db=config['params']['blast_db']
  shadow:  "minimal"
  threads: config['threads']['default']
  singularity: config['containers']['blast']
  shell:
   "blastdbcmd "
-  "   -db {params.blast_db} -entry {params.seqid} "
+  "   -db {params.blast_db} -entry {wildcards.seqid} "
   "   -line_length 60 "
   "   -out {output} "
   "&& sed -i '/^>/ s/ .*//g' {output} "
