@@ -1,0 +1,12 @@
+cluster: "executors/slurm/submit -A {cluster.account} -p {cluster.partition} -n {cluster.n} --mem={cluster.mem} -t {cluster.time}"
+
+cluster-status: "executors/slurm/status"
+jobscript: "executors/slurm/jobscript"
+cluster-config: "profiles/zeus/cluster.json"
+
+shadow-prefix: "$MYSCRATCH/smk_work"
+jobs: 511
+
+use-singularity: true
+singularity-prefix: "$MYGROUP/.smk_singularity"
+singularity-args: "\-B /group \-B /scratch"
